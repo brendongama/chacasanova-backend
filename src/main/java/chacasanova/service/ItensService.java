@@ -23,5 +23,9 @@ public class ItensService {
 		Optional<Itens> item = itensRepository.findById(id);
 		return item;
 	}
-	
+
+	public Itens save(Itens item) {
+		return itensRepository.save(item);
+	}
+		
 }
