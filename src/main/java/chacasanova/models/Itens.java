@@ -22,5 +22,6 @@ public class Itens {
 	private String nome;
 	private Boolean ativo;	
 	private String imagem;
+	private String link;
 }
  

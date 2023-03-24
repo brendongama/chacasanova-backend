@@ -25,7 +25,7 @@ public class ItensController {
 	
 	@Autowired
 	private ItensService service;
-	
+		
 	@GetMapping
 	public ResponseEntity<List<Itens>> getAllItens() {
 		List<Itens> itens = service.getItens();
@@ -53,6 +53,7 @@ public class ItensController {
 		}
 		item.setId(id);
 		Itens newItem = service.save(item);
+		
 		return ResponseEntity.status(HttpStatus.CREATED).body(newItem);
 	}
 
