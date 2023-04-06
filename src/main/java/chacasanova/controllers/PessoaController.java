@@ -44,7 +44,6 @@ public class PessoaController {
 		String content = emailService.getContentMail(pessoaItem.getNome(), pessoaItem.getItem());				
 		try {
 			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailThalita, content);
-			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailBrendon, content);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
