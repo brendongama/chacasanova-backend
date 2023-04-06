@@ -43,7 +43,7 @@ public class PessoaController {
 		
 		String content = emailService.getContentMail(pessoaItem.getNome(), pessoaItem.getItem());				
 		try {
-Troc			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailThalita, content);
+			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailThalita, content);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
