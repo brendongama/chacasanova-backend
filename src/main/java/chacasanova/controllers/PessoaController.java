@@ -29,25 +29,26 @@ public class PessoaController {
 	@Autowired
 	private PessoaService service;
 	
-	//@Autowired
-	//private EmailService emailService;	
+	@Autowired
+	private EmailService emailService;	
 	
-	//@Value("${send.mail.brendon}")
-	//private String sendMailBrendon;
+	@Value("${send.mail.brendon}")
+	private String sendMailBrendon;
 	
-	//@Value("${send.mail.thalita}")
-	//private String sendMailThalita;
+	@Value("${send.mail.thalita}")
+	private String sendMailThalita;
 	
 	@PostMapping
 	private ResponseEntity<Pessoa> pegarItem(@RequestBody Pessoa pessoaItem ) {
 		
-		//String content = emailService.getContentMail(pessoaItem.getNome(), pessoaItem.getItem());				
-//		try {
-//			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailThalita, content);
-//		} catch (MessagingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		String content = emailService.getContentMail(pessoaItem.getNome(), pessoaItem.getItem());				
+		try {
+			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailBrendon, content);
+			emailService.sendEmailToCllient("Presente do APARTAMENTO", sendMailThalita, content);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.pegarItem(pessoaItem));
 		
 	}
